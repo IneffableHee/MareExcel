@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace MarExcel
         private string dkmxUrl;
         private string khxxUrl;
         private string savePath;
+        private BackgroundWorker bgworker = new BackgroundWorker();
         private XYGC XYGC;
         public MainWindow()
         {
@@ -36,10 +38,54 @@ namespace MarExcel
             this.DragMove();
         }
 
+        private void InitWork()
+        {
+            bgworker.WorkerReportsProgress = true;
+            bgworker.DoWork += new DoWorkEventHandler(DoWork);
+            bgworker.ProgressChanged += new ProgressChangedEventHandler(BgworkChange);
+        }
+
+        private void DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i <= 100; i++)
+            {
+                bgworker.ReportProgress(i);
+                System.Threading.Thread.Sleep(100);
+            }
+        }
+
+        /// <summary>
+        ///改变进度条的值
+        /// </summary>
+        private void BgworkChange(object sender, ProgressChangedEventArgs e)
+        {
+            this.progressBar1.Value = e.ProgressPercentage;
+        }
+
+
         private void Btn_Run_Click(object sender, RoutedEventArgs e)
         {
+            //if (dkmxUrl == null)
+            //{
+            //    MessageBox.Show("请导入贷款明细表");
+            //    return;
+            //}
+            //if (khxxUrl == null)
+            //{
+            //    MessageBox.Show("请导入客户信息表");
+            //    return;
+            //}
+            //if (savePath == null)
+            //{
+            //    MessageBox.Show("请设置生成路径");
+            //    return;
+            //}
+
+            InitWork();
+            bgworker.RunWorkerAsync();
+
             MessageBox.Show("Hello~~~~");
-            string khxxUrl = @"G:\Desktop\源数据文件\客户信息.xls";
+            khxxUrl = @"G:\Desktop\源数据文件\客户信息.xls";
             string dkxxUrl = @"G:\Desktop\源数据文件\贷款信息.xls";
 
             if (khxxUrl == "" || dkxxUrl == "")

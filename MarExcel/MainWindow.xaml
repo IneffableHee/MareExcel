@@ -25,50 +25,6 @@
                 <Rectangle Grid.Row="0" Name="rect" Fill="Transparent" MouseLeftButtonDown="DragWindow"></Rectangle>
                 <Image Grid.Row="0" HorizontalAlignment="Left" Height="71" Margin="40,29,0,0" VerticalAlignment="Top" Width="74" Source="/Resources/logo.png"/>
                 <Label Grid.Row="0" Content="惠水农商行信用工程报表工具" Foreground="White" HorizontalAlignment="Left" Height="50" Margin="128,40,0,0" VerticalAlignment="Top" Width="410" FontSize="30"/>
-
-                <Label Grid.Row="1" Foreground="#66A791"  Content="客户信息表：" HorizontalAlignment="Left" Margin="60,56,0,0"  VerticalAlignment="Top" FontSize="14px"/>
-                <Label Grid.Row="1" Foreground="#66A791" Content="贷款明细表：" HorizontalAlignment="Left" Margin="60,112,0,0"  VerticalAlignment="Top" FontSize="14px"/>
-                <Label Grid.Row="1" Foreground="#66A791" Content="生 成 路 径："  Margin="60,168,0,0"  VerticalAlignment="Top" FontSize="14px" HorizontalAlignment="Left"/>
-
-                <TextBox Name="TBoxKhxxUrl" Grid.Row="1" Foreground="#abadb3" IsReadOnly="True" HorizontalAlignment="Left" Height="23" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="导入客户信息表" VerticalAlignment="Top" Width="284" Margin="150,59,0,62"/>
-                <TextBox Name="TBoxDkmxUrl" Grid.Row="1" Foreground="#abadb3" IsReadOnly="True" HorizontalAlignment="Left" Height="23" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="导入贷款明细表" VerticalAlignment="Top" Width="284" Margin="150,115,0,62"/>
-                <TextBox Name="TBoxPath" Grid.Row="1" Foreground="#abadb3" IsReadOnly="True" HorizontalAlignment="Left" Height="23" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="设置生成路径" VerticalAlignment="Top" Width="284" Margin="150,171,0,62"/>
-
-                <Button Name="btnKhxxImport" Grid.Row="1" Foreground="#66A791" Content="导 入" FontSize="14px" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="434,59,0,0" Width="95"  Height="23px" BorderThickness="0" Cursor="Hand" Click="BtnKhxxImport_Click"/>
-                <Button Name="btnDkmxImport" Grid.Row="1" Foreground="#66A791" Content="导 入" FontSize="14px" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="434,115,0,0" Width="95" Height="23px" BorderThickness="0" Cursor="Hand" Click="BtnDkmxImport_Click"/>
-                <Button Name="btnSetPath" Grid.Row="1" Foreground="#66A791" Content="设 置" FontSize="14px" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="434,171,0,0" Width="95" Height="23px" BorderThickness="0" Cursor="Hand" Click="BtnSetPath_Click"/>
-
-                <Button Name="btnRun" Grid.Row="1"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="580,79,0,0" Width="96" Height="96px" BorderThickness="0" Cursor="Hand" Click="Btn_Run_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="ContentContainer"  Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" SnapsToDevicePixels="True" BorderBrush="Transparent"  
-                            BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" CornerRadius="2">
-                                <TextBlock Text="{TemplateBinding Content}" Foreground="White"   VerticalAlignment="Center"  TextAlignment="Center" HorizontalAlignment="Center"/>
-                                <Border.Background>
-                                    <ImageBrush ImageSource="/MarExcel;component/Resources/btn_正常.png"/>
-                                </Border.Background>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger  Property="IsMouseOver"  Value="True">
-
-                                    <Setter Property="Background" TargetName="ContentContainer">
-                                        <Setter.Value>
-                                            <ImageBrush ImageSource="/MarExcel;component/Resources/btn_悬停.png"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                                <Trigger  Property="IsPressed"  Value="True">
-
-                                    <Setter Property="Background" TargetName="ContentContainer">
-                                        <Setter.Value>
-                                            <ImageBrush ImageSource="/MarExcel;component/Resources/btn_按下.png"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
                 <Button Name="btnInfo" HorizontalAlignment="Left" Margin="658,0,0,0" VerticalAlignment="Top" Width="30" Height="30">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
@@ -163,6 +119,52 @@
                     </Button.Template>
                 </Button>
                 
+                
+                <Label Grid.Row="1" Foreground="#66A791"  Content="客户信息表：" HorizontalAlignment="Left" Margin="60,56,0,0"  VerticalAlignment="Top" FontSize="14px"/>
+                <Label Grid.Row="1" Foreground="#66A791" Content="贷款明细表：" HorizontalAlignment="Left" Margin="60,112,0,0"  VerticalAlignment="Top" FontSize="14px"/>
+                <Label Grid.Row="1" Foreground="#66A791" Content="生 成 路 径："  Margin="60,168,0,0"  VerticalAlignment="Top" FontSize="14px" HorizontalAlignment="Left"/>
+
+                <TextBox Name="TBoxKhxxUrl" Grid.Row="1" Foreground="#abadb3" IsReadOnly="True" HorizontalAlignment="Left" Height="23" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="导入客户信息表" VerticalAlignment="Top" Width="284" Margin="150,59,0,62"/>
+                <TextBox Name="TBoxDkmxUrl" Grid.Row="1" Foreground="#abadb3" IsReadOnly="True" HorizontalAlignment="Left" Height="23" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="导入贷款明细表" VerticalAlignment="Top" Width="284" Margin="150,115,0,62"/>
+                <TextBox Name="TBoxPath" Grid.Row="1" Foreground="#abadb3" IsReadOnly="True" HorizontalAlignment="Left" Height="23" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="设置生成路径" VerticalAlignment="Top" Width="284" Margin="150,171,0,62"/>
+
+                <Button Name="btnKhxxImport" Grid.Row="1" Foreground="#66A791" Content="导 入" FontSize="14px" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="434,59,0,0" Width="95"  Height="23px" BorderThickness="0" Cursor="Hand" Click="BtnKhxxImport_Click"/>
+                <Button Name="btnDkmxImport" Grid.Row="1" Foreground="#66A791" Content="导 入" FontSize="14px" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="434,115,0,0" Width="95" Height="23px" BorderThickness="0" Cursor="Hand" Click="BtnDkmxImport_Click"/>
+                <Button Name="btnSetPath" Grid.Row="1" Foreground="#66A791" Content="设 置" FontSize="14px" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="434,171,0,0" Width="95" Height="23px" BorderThickness="0" Cursor="Hand" Click="BtnSetPath_Click"/>
+                
+                <Button Name="btnRun" Grid.Row="1"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="580,79,0,0" Width="96" Height="96px" BorderThickness="0" Cursor="Hand" Click="Btn_Run_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="ContentContainer"  Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" SnapsToDevicePixels="True" BorderBrush="Transparent"  
+                            BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" CornerRadius="2">
+                                <TextBlock Text="{TemplateBinding Content}" Foreground="White"   VerticalAlignment="Center"  TextAlignment="Center" HorizontalAlignment="Center"/>
+                                <Border.Background>
+                                    <ImageBrush ImageSource="/MarExcel;component/Resources/btn_正常.png"/>
+                                </Border.Background>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger  Property="IsMouseOver"  Value="True">
+
+                                    <Setter Property="Background" TargetName="ContentContainer">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="/MarExcel;component/Resources/btn_悬停.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger  Property="IsPressed"  Value="True">
+
+                                    <Setter Property="Background" TargetName="ContentContainer">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="/MarExcel;component/Resources/btn_按下.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                
+                
 
             </Grid>
         </Border>
@@ -170,5 +172,7 @@
     </Grid>
 
 </Window>
+    
+
     
     
